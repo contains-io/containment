@@ -1,0 +1,2 @@
+class ContainmentException(Exception):
+    pass

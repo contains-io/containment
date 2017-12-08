@@ -8,6 +8,8 @@ from setuptools import (
 )
 
 
+common_requires = [ 'rcli >= 0.4.0, < 0.5' ]
+
 setup(
     name='containment',
     author='Za Wilgustus',
@@ -17,15 +19,14 @@ setup(
     use_scm_version=True,
     packages=find_packages(exclude=['tests', 'docs']),
     install_requires=[
-        'docker-py >= 1.10.6, < 1.11',
         'jinja2 >= 2.8, < 3',
-        'rcli >= 0.4.0, < 0.5'
-    ],
+        'typet >= 0.3.3, < 0.4',
+        'docker >= 3.3.0, < 3.4'
+    ] + common_requires,
     setup_requires=[
         'pytest-runner',
-        'rcli >= 0.4.0, < 0.5'
         'setuptools_scm'
-    ],
+    ] + common_requires,
     tests_require=[
         'pytest >= 3, < 4'
     ],
