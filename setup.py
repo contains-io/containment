@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Install contain."""
+"""Install containment."""
 
 from setuptools import (
     find_packages,
@@ -9,11 +9,11 @@ from setuptools import (
 
 
 setup(
-    name='contain',
+    name='containment',
     author='Za Wilgustus',
     author_email='zancas@contains.io',
     license='MIT',
-    url='https://github.com/contains-io/contain.git',
+    url='https://github.com/contains-io/containment.git',
     use_scm_version=True,
     packages=find_packages(exclude=['tests', 'docs']),
     install_requires=[
