@@ -15,7 +15,7 @@ from .types import ProjectId
 def activate(project: ProjectId = None):
     """
     Usage:
-      contain activate [<project>]
+      containment activate [<project>]
 
     Arguments:
       <project>  The name of the project to activate.
@@ -27,7 +27,7 @@ def _get_project_path(project: ProjectId):
     """Find the path of the project based on the project name."""
     if not project:
         return pathlib.Path(os.getcwd())
-    default_path = os.environ.get('CONTAINED_PROJECTS_PATH', '.')
+    default_path = os.environ.get("CONTAINED_PROJECTS_PATH", ".")
     projects_path = pathlib.Path(default_path)
     matches = (p for p in projects_path.iterdir() if p == project)
     project_path = next(matches, None)

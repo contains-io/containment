@@ -10,5 +10,5 @@ Functions:
 def init():
     """
     Usage:
-      contain init
+      containment init
     """

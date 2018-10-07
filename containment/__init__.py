@@ -6,20 +6,17 @@ Functions:
         current directory.
 """
 
-from . import (
-    activate,
-    init
-)
+from . import activate, init
 
 
-def contain():
+def containment():
     """
     Usage:
-      contain [--log-level <level> | --debug | --verbose] [<project>]
-      contain [--log-level <level> | --debug | --verbose]
+      containment [--log-level <level> | --debug | --verbose] [<project>]
+      containment [--log-level <level> | --debug | --verbose]
               [<command> [<args>...]]
-      contain (-h | --help)
-      contain (-V | --version)
+      containment (-h | --help)
+      containment (-V | --version)
 
     Options:
       -h, --help           Display this help message and exit.
