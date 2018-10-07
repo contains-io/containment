@@ -19,11 +19,11 @@ setup(
     install_requires=[
         'docker-py >= 1.10.6, < 1.11',
         'jinja2 >= 2.8, < 3',
-        'rcli >= 0.2.6, < 0.3'
+        'rcli >= 0.4.0, < 0.5'
     ],
     setup_requires=[
         'pytest-runner',
-        'rcli >= 0.2.6, < 0.3',
+        'rcli >= 0.4.0, < 0.5'
         'setuptools_scm'
     ],
     tests_require=[
@@ -39,6 +39,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Intended Audience :: Developers',
         'Topic :: Utilities'
     ]

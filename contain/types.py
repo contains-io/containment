@@ -5,7 +5,7 @@ Types:
     ProjectId: A validation type for project identifiers.
 """
 
-from typingplus.types import Length
+from typet import Length
 
 
 ProjectId = Length[str, 1:]
