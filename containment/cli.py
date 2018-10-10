@@ -83,10 +83,7 @@ class Context:
                        -v {cli.community.pathname}:{cli.community.pathname} \
                        --entrypoint=/entrypoint.sh -u {self.user}:{self.dockergid} {cli.project.tag}:latest"""
 
-        self.externalbasis = (
-            "ubuntu@sha256:c8c275751219dadad8fa56b3ac41ca6cb22219ff117ca9"
-            "8fe82b42f24e1ba64e"
-        )
+        self.externalbasis = ("ubuntu@latest")
         self.base_text = f"""FROM    {self.externalbasis}
         RUN     apt update && apt install -y sudo docker.io"""
 
