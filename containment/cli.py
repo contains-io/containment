@@ -77,11 +77,27 @@ class Context:
         sudo sed -ie s/docker:x:[0-9]*:{self.user}/docker:x:{self.dockergid}:{self.user}/g /etc/group
         sudo usermod -s {self.shell} {self.user}
         exec {self.shell}"""
-        self.run_text = f"""docker run -it \
-                       -v /var/run/docker.sock:/var/run/docker.sock \
-                       -v {cli.profile.home}:{cli.profile.home} \
-                       -v {cli.community.pathname}:{cli.community.pathname} \
-                       --entrypoint=/entrypoint.sh -u {self.user}:{self.dockergid} {cli.project.tag}:latest"""
+        try:
+            self.ssh_auth_sock = os.environ["SSH_AUTH_SOCK"]
+        except KeyError
+            self.ssh_auth_sock = ""
+        if self.ssh_auth_sock:
+            self.ssh_auth_sock_parent = pathlib.\
+                                        Path(self.ssh_auth_sock_raw).\
+                                        parent.as_posix()
+            self.run_text = f"""docker run -it \
+                           -v /var/run/docker.sock:/var/run/docker.sock \
+                           -v {cli.profile.home}:{cli.profile.home} \
+                           -v {cli.community.pathname}:{cli.community.pathname} \
+                           -v {self.ssh_auth_sock_parent} \
+                           -e SSH_AUTH_SOCK={self.ssh_auth_sock} \
+                           --entrypoint=/entrypoint.sh -u {self.user}:{self.dockergid} {cli.project.tag}:latest"""
+        else:
+            self.run_text = f"""docker run -it \
+                           -v /var/run/docker.sock:/var/run/docker.sock \
+                           -v {cli.profile.home}:{cli.profile.home} \
+                           -v {cli.community.pathname}:{cli.community.pathname} \
+                           --entrypoint=/entrypoint.sh -u {self.user}:{self.dockergid} {cli.project.tag}:latest"""
 
         self.externalbasis = ("ubuntu@latest")
         self.base_text = f"""FROM    {self.externalbasis}
