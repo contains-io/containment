@@ -4,7 +4,6 @@
 Types:
     ProjectId: A validation type for project identifiers.
 """
-
 from typet import Length
 
 
