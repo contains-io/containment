@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#: -*- coding: utf-8 -*-
 """Contains the activate command and helper methods.
 
 Functions:
@@ -79,11 +79,11 @@ class Context:
         exec {self.shell}"""
         try:
             self.ssh_auth_sock = os.environ["SSH_AUTH_SOCK"]
-        except KeyError
+        except KeyError:
             self.ssh_auth_sock = ""
         if self.ssh_auth_sock:
             self.ssh_auth_sock_parent = pathlib.\
-                                        Path(self.ssh_auth_sock_raw).\
+                                        Path(self.ssh_auth_sock).\
                                         parent.as_posix()
             self.run_text = f"""docker run -it \
                            -v /var/run/docker.sock:/var/run/docker.sock \
