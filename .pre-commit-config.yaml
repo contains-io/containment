@@ -10,7 +10,6 @@ repos:
         args: [--fix=lf]
       - id: pretty-format-json
         args: [--autofix]
-      - id: flake8
       - id: check-docstring-first
       - id: check-json
       - id: check-added-large-files
@@ -24,4 +23,4 @@ repos:
     rev: v1.3.0
     hooks:
       - id: reorder-python-imports
-        language_version: python2.7
+        language_version: python3.6
