@@ -39,7 +39,7 @@ class _PersonalConfig(Object):
     projects: Path = path / "projects"
     os_packages: Path = path / "os_packages.json"
     lang_packages: Path = path / "lang_packages.json"
-    package_list: List[str] = ["vim", "tmux", "git", _SHELL.name]
+    package_list: List[str] = ["docker", _SHELL.name]
 
 
 @singleton
